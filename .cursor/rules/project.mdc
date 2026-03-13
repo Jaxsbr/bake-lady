@@ -1,0 +1,33 @@
+---
+description: Project-level conventions for bake-lady
+alwaysApply: true
+---
+
+# Bake Lady Conventions
+
+- **Workspace root**: `/Users/jacobusbrink/Code/projects/bake-lady`
+- **Stack**: Vite + TypeScript (strict) + Preact + vanilla CSS
+- **Persistence**: localStorage (JSON blob)
+- **Build output**: single `index.html` via vite-plugin-singlefile
+
+## Key directories
+
+| Directory              | Purpose                              |
+|------------------------|--------------------------------------|
+| `src/components/`      | Preact UI components                 |
+| `src/store/`           | State management + localStorage I/O  |
+| `src/lib/`             | Pure utilities (scaling, search, etc)|
+| `src/types/`           | Shared TypeScript types              |
+| `src/styles/`          | CSS (base, components, print)        |
+| `docs/`                | Specs, architecture, build plan      |
+
+## Rules
+
+- TypeScript strict — no `any`, no `ts-ignore`
+- Components never touch `localStorage` directly — always through `store/`
+- Mobile-first responsive (375px+ minimum)
+- Print layout is a first-class concern — never break it
+- `npm run build` must produce a standalone `index.html`
+- Conventional commits: `feat:`, `fix:`, `chore:`, `docs:`, `test:`, `refactor:`
+- UI: warm, characterful, classic recipe-book feel — not corporate
+- Keep bundle tiny — every dependency inlines into the single HTML file
